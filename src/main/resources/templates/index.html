@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin page control</title>
+
+    <link href="/static/css/bootstrap.css" type="text/css" th:href="@{css/bootstrap.css}" rel="stylesheet">
+    <link href="/static/css/bootstrap-grid.css" type="text/css" th:href="@{css/bootstrap-grid.css}" rel="stylesheet">
+    <link href="/static/css/bootstrap-reboot.css" type="text/css" th:href="@{css/bootstrap-reboot.css}"
+          rel="stylesheet">
+    <link href="/static/css/style.css" type="text/css" th:href="@{css/style.css}" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <!-- Заголовок с информацией о авторизованном пользователе и ссылкой на выход из кабинета -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row header-user-info">
+                <div class="header-block col-md-11">
+                </div>
+                <div class="col-md-1">
+                    <span><a href="/logout">Logout</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-md-12-correct">
+            <div style="display: flex;">
+                <ul class="col-md-1 nav flex-column nav-pills left-nav-block" id="myPill" role="tablist">
+                </ul>
+
+                <div class="tab-content tab-panel-content-correct" id="myPillContent">
+                    <div class="tab-pane fade show active" id="admin-content" role="tabpanel"
+                         aria-labelledby="adminpanel">
+
+                        <div>
+                            <H2>Admin panel</H2>
+                        </div>
+                        <div>
+                            <!-- Навигация -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#allusers" role="tab"
+                                       aria-controls="allusers" aria-selected="true" id = "usersTableTab">Users table</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#addnewuser" role="tab"
+                                       aria-controls="addnewuser" aria-selected="false" id = "addNewUserTab">New User</a>
+                                </li>
+                            </ul>
+                            <!-- Содержимое вкладок -->
+                            <div class="tab-content tab-content-correct" id="myTabUsersContent">
+                                <!-- Содержимое вкладки со списком всех пользователей -->
+                                <div role="tabpanel" class="tab-pane fade show active" id="allusers">
+                                    <div>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-12 col-md-12-correct">
+                                                    <div class="card">
+                                                        <h5 class="card-header">
+                                                            All users
+                                                        </h5>
+                                                        <div class="card-body card-body-correct">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Id</th>
+                                                                    <th>First Name</th>
+                                                                    <th>Last Name</th>
+                                                                    <th>Age</th>
+                                                                    <th>Email</th>
+                                                                    <th>Role</th>
+                                                                    <th>Edit</th>
+                                                                    <th>Delete</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody class="table-with-all-users">
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Содержимое вкладки с добавлением нового пользователя -->
+                                <div role="tabpanel" class="tab-pane fade" id="addnewuser">
+                                    <div>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-12 col-md-12-correct">
+                                                    <div class="card">
+                                                        <h5 class="card-header">
+                                                            Add new user
+                                                        </h5>
+                                                        <div class="card-body card-body-correct">
+                                                            <form id = "newUserForm">
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="user-content" role="tabpanel"
+                         aria-labelledby="userpanel">
+                        <div>
+                            <H2>User information-page</H2>
+                        </div>
+                        <div>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12 col-md-12-correct">
+                                        <div class="card card-correct">
+                                            <h5 class="card-header">
+                                                About user
+                                            </h5>
+                                            <div class="card-body card-body-correct">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Age</th>
+                                                        <th>Email</th>
+                                                        <th>Role</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody class="table-user-info">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно-->
+    <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="UserModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="UserModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id = "userModalWindow">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+</body>
+
+</html>
